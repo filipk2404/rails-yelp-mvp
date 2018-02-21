@@ -1,0 +1,31 @@
+<nav class="navbar navbar-light bg-faded " style="background-color: #e3f2fd;">
+  <form class="form-inline">
+
+    <h1><%= @restaurant.name   %>  </h1>
+    <h3><%= "#{@restaurant.address} ,  #{@restaurant.phone_number} , specialties #{@restaurant.category} "%> </h3>
+
+    <%= link_to restaurants_path do %> back to list <% end %>
+
+  </form>
+</nav>
+<%= @restaurant[:id] %>
+
+
+<div class="container ">'
+  <ul class="list-group">
+    <% @reviews.each do |review| %>
+    <li class="list-group-item" >
+      <div class="d-inline  text-black"><%= review.content  %></div>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="container ">'
+  <ul class="list-group">
+    <li class="list-group-item" >
+      <div class="d-inline  text-black"><%= link_to "edit", edit_review_path(@restaurant) %> | <%= link_to " destroy", restaurant_path(@restaurant), method:"delete" %>| <%= link_to " add comments", restaurant_path(restaurant) %></div>
+    </li>
+  </ul>
+</div>
+

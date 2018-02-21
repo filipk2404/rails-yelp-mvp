@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-faded " style="background-color: #e3f2fd;">
+  <form class="form-inline">
+    <h1>Restaurants</h1>
+
+    <%= link_to new_restaurant_path do %> Add a new restaurant <% end %>
+
+  </form>
+</nav>
+
+
+<div class="container ">'
+  <ul class="list-group">
+    <% @restaurants.each do |restaurant| %>
+    <li class="list-group-item" >
+      <div class="d-inline  text-black"><%= link_to restaurant.name, restaurant_path(restaurant) %></div>
+      <div class="d-inline  text-black"><%= restaurant.address  %></div>
+      <div class="d-inline  text-black"><%= link_to "edit", edit_restaurant_path(restaurant) %> | <%= link_to " destroy", restaurant_path(restaurant), method:"delete" %>| <%= link_to " view comments", restaurant_path(restaurant) %></div>
+      <% end %>
+    </li>
+  </ul>
+</div>

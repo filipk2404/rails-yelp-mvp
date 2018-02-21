@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light bg-faded " style="background-color: #e3f2fd;">
+  <form class="form-inline">
+    <h1>Register a new Restaurant</h1>
+
+    <%= link_to restaurants_path do %> back to list <% end %>
+
+  </form>
+</nav>
+
+<div class = "container ">
+
+<%= simple_form_for @restaurant  do |f| %>
+            <p>
+                        <%= f.label :name %><br>
+                        <%= f.text_field :name %>
+            </p>
+            <p>
+                        <%= f.label :address %><br>
+                        <%= f.text_area :address %>
+            </p>
+            <p>
+                        <%= f.label :phone_number %><br>
+                        <%= f.text_area :phone_number %>
+            </p>
+            <p>
+<%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"], text: "select a value" %>
+            </p>
+            <p>
+                        <%= f.submit "create" ,class: 'btn btn-primary' %>
+            </p>
+<% end %>
+
+</div>
